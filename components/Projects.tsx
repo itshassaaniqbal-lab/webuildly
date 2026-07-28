@@ -1,0 +1,13 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
+
+const projects=[
+  { title:"Cortex AI", category:"AI SaaS", desc:"An intelligent workspace that turns scattered business knowledge into clear, actionable decisions.", tags:["Next.js","AI","Data systems"], rgb:"79,140,255", screen:"Ask better questions." },
+  { title:"Nexus OS", category:"CRM Dashboard", desc:"A calmer command center for high-velocity sales teams, designed around focus and momentum.", tags:["SaaS","UX systems","Analytics"], rgb:"124,92,255", screen:"Pipeline, in motion." },
+  { title:"Vanta Flow", category:"Business Automation", desc:"A visual operations platform connecting approvals, data, and teams without the usual complexity.", tags:["Automation","APIs","Workflows"], rgb:"35,213,255", screen:"Make work flow." },
+  { title:"Mercury", category:"Commerce Platform", desc:"A conversion-focused storefront and management experience for a modern global product brand.", tags:["E-commerce","Web","Product design"], rgb:"108,126,255", screen:"Growth, by design." },
+];
+
+export default function Projects(){return <section className="section" id="projects"><div className="shell"><div className="projects-header"><motion.div initial={{opacity:0,y:25}} whileInView={{opacity:1,y:0}} viewport={{once:true}}><span className="eyebrow">Selected work</span><h2 className="section-title">Built to be <span className="muted">remembered.</span></h2></motion.div><a className="pill-button pill-ghost" href="#contact">Build something exceptional <ArrowUpRight size={15}/></a></div><div className="projects-list">{projects.map((project,i)=><motion.article className="project glass" style={{"--project-rgb":project.rgb} as React.CSSProperties} key={project.title} initial={{opacity:0,y:60}} whileInView={{opacity:1,y:0}} viewport={{once:true,amount:.17}} transition={{duration:.8}}><div className="project-visual"><div className="project-orbit"/><div className="mock-window"><div className="mock-top"><i/><i/><i/></div><div className="mock-body"><div className="mock-side">{Array.from({length:7}).map((_,n)=><b key={n}/>)}</div><div className="mock-content"><span className="eyebrow">{project.category}</span><h4>{project.screen}</h4><div className="chart"/><div className="mini-cards"><div/><div/><div/></div></div></div></div></div><div className="project-copy"><span className="project-index">0{i+1} / {String(projects.length).padStart(2,"0")}</span><div><span className="eyebrow">{project.category}</span><h3>{project.title}</h3><p>{project.desc}</p><div className="tags">{project.tags.map(tag=><span key={tag}>{tag}</span>)}</div></div></div></motion.article>)}</div></div></section>}

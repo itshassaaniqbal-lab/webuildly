@@ -1,5 +1,8 @@
 import type { MetadataRoute } from "next";
 
+export const dynamic = "force-static";
+
 export default function robots(): MetadataRoute.Robots {
-  return { rules: { userAgent: "*", allow: "/" }, sitemap: "https://webuildly.vercel.app/sitemap.xml" };
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://itshassaaniqbal-lab.github.io/webuildly";
+  return { rules: { userAgent: "*", allow: "/" }, sitemap: `${siteUrl}/sitemap.xml` };
 }

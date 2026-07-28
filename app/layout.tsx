@@ -6,7 +6,7 @@ const geist = Geist({ variable: "--font-geist", subsets: ["latin"] });
 const mono = Geist_Mono({ variable: "--font-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://webuildly.vercel.app"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://itshassaaniqbal-lab.github.io/webuildly"),
   title: { default: "Buildly — Digital Products That Scale", template: "%s — Buildly" },
   description: "Premium websites, SaaS platforms, AI products, automation systems, and custom software engineered for ambitious businesses.",
   keywords: ["software agency", "website development", "SaaS development", "AI applications", "business automation", "UI UX design", "Pakistan"],
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://webuildly.vercel.app",
+    url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://itshassaaniqbal-lab.github.io/webuildly",
     siteName: "Buildly",
     title: "Buildly — We Build Digital Experiences That Scale",
     description: "Premium websites, SaaS, AI, automation, and custom software built for momentum.",
